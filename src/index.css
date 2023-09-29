@@ -13,7 +13,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
 .items-list .bp3-tag {
   margin: 8px 0;
 }

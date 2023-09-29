@@ -1,20 +1,9 @@
-import {
-  Button,
-  Card,
-  Checkbox,
-  ControlGroup,
-  Elevation,
-  InputGroup,
-  Tag,
-} from "@blueprintjs/core";
+import {Button,Card,Checkbox,ControlGroup,Elevation,InputGroup,Tag,} from "@blueprintjs/core";
 import { useState } from "react";
 import useLocalStorage from "./useLocalStorage";
-
 function App() {
   const [userInput, setUserInput] = useState("");
-
   const [todoList, setTodoList] = useLocalStorage("todo-items", []);
-
   const addItem = (e) => {
     e.preventDefault();
     const trimmedUserInput = userInput.trim();
@@ -26,7 +15,6 @@ function App() {
       setUserInput("");
     }
   };
-
   const toggleTask = (index) => {
     setTodoList((existingItems) =>
       existingItems.map((item, i) =>
@@ -34,13 +22,11 @@ function App() {
       )
     );
   };
-
   const deleteTask = (index) => {
     setTodoList((existingItems) =>
       existingItems.filter((item, i) => index !== i)
     );
   };
-
   return (
     <div className="App">
       <Card elevation={Elevation.TWO}>
@@ -68,8 +54,7 @@ function App() {
             >
               <Checkbox
                 checked={item.finished}
-                onChange={() => toggleTask(index)}
-              >
+                onChange={() => toggleTask(index)}>
                 <span className={item.finished ? "finished" : ""}>
                   {item.name}
                 </span>
@@ -79,7 +64,5 @@ function App() {
         </div>
       </Card>
     </div>
-  );
-}
-
+  );}
 export default App;
